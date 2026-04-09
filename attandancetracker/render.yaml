@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: mits-attendance-tracker
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd attandancetracker && gunicorn --bind 0.0.0.0:$PORT telegrambot:app
+    healthCheckPath: /
+    autoDeploy: true
